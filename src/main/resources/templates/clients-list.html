@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Clients</title>
+</head>
+<body>
+<div th:switch="${clients}">
+    <h2 th:case="null">No users found!</h2>
+    <div th:case="*">
+        <h2>Клиенты</h2>
+        <table border="1">
+            <thead>
+            <tr>
+                <th>№</th>
+                <th>Организация</th>
+                <th>Адрес</th>
+                <th>Контактное лицо</th>
+                <th>Номер телефона</th>
+                <th>Менеджер</th>
+                <th>Договор</th>
+                <th>Акт приема-передачи</th>
+                <th>Акт оказанных услуг</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="clients : ${clients}">
+                <td th:text="${clients.id}"></td>
+                <td th:text="${clients.organization}"></td>
+                <td th:text="${clients.adress}"></td>
+                <td th:text="${clients.person}"></td>
+                <td th:text="${clients.number}"></td>
+                <td th:text="${clients.manager}"></td>
+                <td th:text="${clients.contract}"></td>
+                <td th:text="${clients.actfirst}"></td>
+                <td th:text="${clients.actlast}"></td>
+                <td><a th:href="@{clients-update/{id}(id=${clients.id})}">Изменить данные</a></td>
+                <td><a th:href="@{clients-delete/{id}(id=${clients.id})}">Удалить</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/clients-create"> Добавить клиента</a></p>
+</div>
+</body>
+</html>

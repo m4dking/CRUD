@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Create client</title>
+</head>
+<body>
+<form action="#" th:action="@{/clients-create}" th:object="${clients}" method="post">
+  <label for="organization">Организация</label>
+  <input type="text" th:field="*{organization}" id="organization">
+  <br/>
+  <br/>
+  <label for="adress">Адрес</label>
+  <input type="text" th:field="*{adress}" id="adress">
+  <br/>
+  <br/>
+  <label for="person">Контактное лицо</label>
+  <input type="text" th:field="*{person}" id="person">
+  <br/>
+  <br/>
+  <label for="adress">Номер</label>
+  <input type="text" th:field="*{number}" id="number">
+  <br/>
+  <br/>
+  <label for="adress">Менеджер</label>
+  <input type="text" th:field="*{manager}" id="manager">
+  <br/>
+  <br/>
+  <label for="adress">Договор</label>
+  <input type="text" th:field="*{contract}" id="contract">
+  <br/>
+  <br/>
+  <label for="adress">Акт приема-передачи</label>
+  <input type="text" th:field="*{actfirst}" id="actfirst">
+  <br/>
+  <br/>
+  <label for="adress">Акт оказанных услуг</label>
+  <input type="text" th:field="*{actlast}" id="actlast">
+  <br/>
+  <br/>
+  <input type="submit" value="Создать клиента">
+</form>
+</body>
+</html>
