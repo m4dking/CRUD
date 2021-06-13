@@ -5,6 +5,19 @@
     <title>Clients</title>
 </head>
 <body>
+<form method="post" action="manager">
+        <input type="text" name="manager">
+        <input type="submit" value="Найти клиента">
+    </div>
+</form>
+</body>
+<body>
+<form method="post" action="adress">
+    <input type="text" name="adress">
+    <input type="submit" value="Найти по адресу">
+</form>
+</body>
+<body>
 <div th:switch="${clients}">
     <h2 th:case="null">No users found!</h2>
     <div th:case="*">

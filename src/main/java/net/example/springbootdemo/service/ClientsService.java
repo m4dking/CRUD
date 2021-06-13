@@ -33,4 +33,12 @@ public class ClientsService {
     public void deleteById(Long id){
         clientsRepository.deleteById(id);
     }
+
+    public List<Clients> findByManager(String manager) {
+        return clientsRepository.findClientsByManager(manager);
+    }
+
+    public List<Clients> findByAdress(String adress) {
+        return clientsRepository.findClientsByAdress(adress);
+    }
 }

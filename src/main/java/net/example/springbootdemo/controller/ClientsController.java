@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -56,5 +57,19 @@ public class ClientsController {
     public String updateClients(Clients clients){
         clientsService.saveClient(clients);
         return "redirect:/clients";
+    }
+
+    @PostMapping("/manager")
+    public String findClientsByManager(@RequestParam String manager, Model model) {
+        List<Clients> clients = clientsService.findByManager(manager);
+        model.addAttribute("clients", clients);
+        return "clients-list";
+    }
+
+    @PostMapping("/adress")
+    public String findClientsByAdress(@RequestParam String adress, Model model) {
+        List<Clients> clients = clientsService.findByAdress(adress);
+        model.addAttribute("clients", clients);
+        return "clients-list";
     }
 }
